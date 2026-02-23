@@ -9,7 +9,7 @@ export function Glow({ className }: GlowProps) {
     <div
       aria-hidden
       className={cn(
-        "pointer-events-none absolute -z-10 rounded-full bg-[radial-gradient(circle,var(--accentGlow)_0%,rgba(57,255,136,0.12)_30%,rgba(57,255,136,0)_70%)] blur-2xl",
+        "pointer-events-none absolute z-0 rounded-full bg-[radial-gradient(circle,rgba(57,255,136,0.35)_0%,rgba(57,255,136,0.12)_30%,rgba(57,255,136,0)_70%)] blur-2xl",
         className,
       )}
     />

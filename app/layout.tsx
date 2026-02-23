@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
-  subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Callum Tremayne | Full-Stack Developer",
-  description: "Personal portfolio homepage for Callum Tremayne, Full-Stack Developer.",
+  description:
+    "Personal portfolio homepage for Callum Tremayne, Full-Stack Developer.",
 };
 
 export default function RootLayout({
@@ -25,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}>
-        {children}
-      </body>
+      <body className={spaceGrotesk.variable}>{children}</body>
     </html>
   );
 }

@@ -60,21 +60,21 @@ export function ProjectsFeature() {
           <Card
             className={
               index % 2 === 0
-                ? "border-[color:var(--accent)]/25 bg-[linear-gradient(145deg,rgba(57,255,136,0.08),rgba(255,255,255,0.02))]"
-                : "bg-[linear-gradient(145deg,rgba(255,255,255,0.05),rgba(57,255,136,0.02))]"
+                ? "border-primary/25 bg-[linear-gradient(145deg,rgba(57,255,136,0.08),rgba(17,22,27,0.85))]"
+                : "bg-[linear-gradient(145deg,rgba(17,22,27,0.85),rgba(57,255,136,0.05))]"
             }
           >
             <CardContent className="p-6 sm:p-8">
               <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-start">
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-semibold tracking-tight text-[color:var(--text)]">
+                  <h3 className="text-2xl font-semibold tracking-tight text-foreground">
                     {project.title}
                   </h3>
-                  <p className="max-w-2xl text-[color:var(--muted)]">{project.description}</p>
-                  <ul className="space-y-2 text-sm text-[color:var(--muted)]">
+                  <p className="max-w-2xl text-muted-foreground">{project.description}</p>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
                     {project.bullets.map((bullet) => (
                       <li key={bullet} className="flex items-start gap-2">
-                        <span aria-hidden className="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--accent)]" />
+                        <span aria-hidden className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
                         <span>{bullet}</span>
                       </li>
                     ))}

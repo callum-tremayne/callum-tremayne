@@ -1,9 +1,11 @@
 import { Container } from "@/components/Container";
 import { CredentialStrip } from "@/components/CredentialStrip";
+import { Currently } from "@/components/Currently";
 import { ExperienceGrid } from "@/components/ExperienceGrid";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { HighlightsTimeline } from "@/components/HighlightsTimeline";
+import { IntroSection } from "@/components/IntroSection";
 import { LookingFor } from "@/components/LookingFor";
 import { NoiseOverlay } from "@/components/NoiseOverlay";
 import { Philosophy } from "@/components/Philosophy";
@@ -14,11 +16,14 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[color:var(--bg)] text-[color:var(--text)]">
+    <div className="relative isolate min-h-screen overflow-x-hidden bg-background text-foreground">
       <NoiseOverlay />
-      <div aria-hidden className="space-bg fixed inset-0 -z-20" />
+      <div
+        aria-hidden
+        className="space-bg pointer-events-none fixed inset-0 z-0"
+      />
 
-      <main>
+      <main className="relative z-10">
         <Hero />
         <CredentialStrip />
 
@@ -26,34 +31,36 @@ export default function Home() {
           <Section
             title="Building robust systems across enterprise and modern stacks."
             showHeadingGlow
+            split
+            id="about"
           >
-            <Card>
-              <CardContent className="p-6 sm:p-8">
-                <p className="whitespace-pre-line leading-8 text-[color:var(--muted)]">
-                  I’m a full-stack developer experienced in delivering large-scale enterprise web platforms as well
-                  as independently shipping modern, database-driven products.
-                  {"\n"}
-                  In my current role, I work within a C# ASP.NET MVC architecture using Razor Views, React, Sass,
-                  Sitecore CMS, and Solr. My work spans feature development, UI implementation, performance
-                  optimisation, API integrations, and cross-team collaboration.
-                  {"\n"}
-                  Alongside this, I design and deploy independent full-stack applications using Next.js, TypeScript,
-                  and PostgreSQL-based backends. This dual experience allows me to bridge structured enterprise
-                  systems with modern product-focused engineering.
-                </p>
-              </CardContent>
-            </Card>
+            <IntroSection />
           </Section>
 
-          <Section id="experience" title="Enterprise Experience" showHeadingGlow>
+          <Section
+            title="Currently"
+            description="Enterprise engineering by day. Modern product development by design."
+          >
+            <Currently />
+          </Section>
+
+          <Section
+            id="experience"
+            title="Enterprise Experience Highlights"
+            showHeadingGlow
+          >
             <ExperienceGrid />
           </Section>
 
-          <Section id="projects" title="Selected Projects" showHeadingGlow>
+          <Section
+            id="projects"
+            title="Selected Project Highlights"
+            showHeadingGlow
+          >
             <ProjectsFeature />
           </Section>
 
-          <Section title="Work Highlights">
+          <Section title="Approach">
             <HighlightsTimeline />
           </Section>
 
@@ -68,8 +75,9 @@ export default function Home() {
           <Section id="contact" title="Get in touch">
             <Card>
               <CardContent className="space-y-5 p-6 sm:p-8">
-                <p className="text-[color:var(--muted)]">
-                  If you’re hiring or would like to discuss opportunities, feel free to reach out.
+                <p className="text-muted-foreground">
+                  If you’re hiring or would like to discuss opportunities, feel
+                  free to reach out.
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <Button asChild variant="secondary" size="sm">
@@ -86,9 +94,8 @@ export default function Home() {
             </Card>
           </Section>
         </Container>
+        <Footer />
       </main>
-
-      <Footer />
     </div>
   );
 }
