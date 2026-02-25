@@ -1,13 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 
 export function AutoPrint() {
-  const searchParams = useSearchParams();
-  const shouldPrint = searchParams.get("print") === "1";
-
   useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const shouldPrint = searchParams.get("print") === "1";
     if (!shouldPrint) return;
 
     let cancelled = false;
@@ -32,7 +30,7 @@ export function AutoPrint() {
       cancelled = true;
       window.clearTimeout(timer);
     };
-  }, [shouldPrint]);
+  }, []);
 
   return null;
 }
