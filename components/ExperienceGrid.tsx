@@ -4,6 +4,8 @@ import { ChevronDown } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 type ExperienceCard = {
   title: string;
@@ -12,6 +14,7 @@ type ExperienceCard = {
   summary: string;
   bullets: string[];
   details: string;
+  href: string;
 };
 
 const cards: ExperienceCard[] = [
@@ -30,6 +33,7 @@ const cards: ExperienceCard[] = [
     ],
     details:
       "This project required cross-team coordination between design, content, and engineering while ensuring scalable implementation inside a structured enterprise CMS architecture.",
+    href: "https://wwww.leedsbeckett.ac.uk/",
   },
   {
     title: "UCAS Tariff Calculator",
@@ -46,6 +50,7 @@ const cards: ExperienceCard[] = [
     ],
     details:
       "This project required resilient API integration, careful validation logic, and performance-first UI decisions to keep the experience fast and reliable under frequent use.",
+    href: "https://www.leedsbeckett.ac.uk/clearing/ucas-points-calculator",
   },
   {
     title: "Safe Quick Exit",
@@ -62,6 +67,7 @@ const cards: ExperienceCard[] = [
     ],
     details:
       "This project required careful interpretation of browser constraints, user safety priorities, and responsible implementation practices for sensitive safeguarding scenarios.",
+    href: "https://www.leedsbeckett.ac.uk/our-community/support-report-respect/",
   },
   {
     title: "Mobile App Collaboration",
@@ -78,6 +84,7 @@ const cards: ExperienceCard[] = [
     ],
     details:
       "This project required close stakeholder collaboration, prioritisation tradeoffs, and consistent execution to maintain momentum while improving product quality.",
+    href: "",
   },
   {
     title: "3D Virtual Campus",
@@ -94,6 +101,7 @@ const cards: ExperienceCard[] = [
     ],
     details:
       "This project required adapting web product thinking to immersive media constraints while keeping navigation intuitive and the experience performant across target devices.",
+    href: "https://www.leedsbeckett.ac.uk/explore",
   },
 ];
 
@@ -105,16 +113,26 @@ export function ExperienceGrid() {
         const remainingBullets = card.bullets.slice(3);
 
         return (
-          <div key={card.title}>
-            <Card className="h-full transition-all duration-200 hover:border-primary/40 hover:shadow-[0_0_26px_rgba(57,255,136,0.35)]">
+          <div key={card.title} className="min-w-0">
+            <Card className="h-full min-w-0 transition-all duration-200 hover:border-primary/40 hover:shadow-[0_0_26px_rgba(57,255,136,0.35)]">
               <CardHeader className="space-y-3">
                 <CardTitle className="text-lg text-foreground">
                   {card.title}
                 </CardTitle>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="default">{card.contextTag}</Badge>
+                  <Badge
+                    variant="default"
+                    className="max-w-full whitespace-normal wrap-break-word"
+                  >
+                    {card.contextTag}
+                  </Badge>
                   {card.optionalTag ? (
-                    <Badge variant="secondary">{card.optionalTag}</Badge>
+                    <Badge
+                      variant="secondary"
+                      className="max-w-full whitespace-normal wrap-break-word"
+                    >
+                      {card.optionalTag}
+                    </Badge>
                   ) : null}
                 </div>
               </CardHeader>
@@ -126,12 +144,12 @@ export function ExperienceGrid() {
 
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   {previewBullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2">
+                    <li key={bullet} className="flex min-w-0 items-start gap-2">
                       <span
                         aria-hidden
                         className="mt-2 h-1.5 w-1.5 rounded-full bg-primary"
                       />
-                      <span className="truncate">{bullet}</span>
+                      <span className="min-w-0 wrap-break-word">{bullet}</span>
                     </li>
                   ))}
                 </ul>
@@ -148,18 +166,32 @@ export function ExperienceGrid() {
                   <div className="mt-3 space-y-3">
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       {remainingBullets.map((bullet) => (
-                        <li key={bullet} className="flex items-start gap-2">
+                        <li
+                          key={bullet}
+                          className="flex min-w-0 items-start gap-2"
+                        >
                           <span
                             aria-hidden
                             className="mt-2 h-1.5 w-1.5 rounded-full bg-primary"
                           />
-                          <span className="truncate">{bullet}</span>
+                          <span className="min-w-0 wrap-break-word">
+                            {bullet}
+                          </span>
                         </li>
                       ))}
                     </ul>
                     <p className="text-sm leading-7 text-muted-foreground">
                       {card.details}
                     </p>
+                    {card.href && (
+                      <div className="flex justify-center my-3">
+                        <Button>
+                          <Link href={card.href} target="_blank">
+                            View Here
+                          </Link>
+                        </Button>
+                      </div>
+                    )}
                   </div>
                 </details>
               </CardContent>

@@ -10,6 +10,7 @@ import {
   SiJira,
   SiNextdotjs,
   SiNodedotjs,
+  SiPayloadcms,
   SiPostgresql,
   SiReact,
   SiSass,
@@ -32,7 +33,7 @@ const stackIcons: Record<string, IconType> = {
   "Tailwind CSS": SiTailwindcss,
   Supabase: SiSupabase,
   PostgreSQL: SiPostgresql,
-  "Payload CMS": SiNodedotjs,
+  "Payload CMS": SiPayloadcms,
   Vercel: SiVercel,
   Jenkins: SiJenkins,
   JIRA: SiJira,
@@ -47,7 +48,7 @@ const roles = [
     date: "September 2023 - Present",
     organisation: "Leeds Beckett University",
     description:
-      "Working within a large-scale Sitecore CMS environment built on C# ASP.NET MVC (Razor Views), React, Sass, and Solr. Contributing to structured content architecture, performance optimisation, API integrations, and cross-team delivery across a high-traffic institutional platform.",
+      "Working within a large-scale Sitecore CMS environment built on C# ASP.NET MVC, React, Sass, and Solr. Contributing to structured content architecture, performance optimisation, API integrations, and cross-team delivery across a high-traffic institutional platform.",
     stack: [
       "C#",
       "ASP.NET MVC",
@@ -62,7 +63,7 @@ const roles = [
     ],
   },
   {
-    title: "Founder",
+    title: "Founder - Lead Developer",
     organisation: "Tremayne Digital Solutions",
     date: "Feburary 2026 - Present",
     description:
@@ -86,24 +87,24 @@ export function Currently() {
       {roles.map((role) => (
         <Card
           key={role.title}
-          className="h-full transition-all duration-200 hover:border-primary/40 hover:shadow-[0_0_24px_rgba(57,255,136,0.25)]"
+          className="flex h-full flex-col transition-all duration-200 hover:border-primary/40 hover:shadow-[0_0_24px_rgba(57,255,136,0.25)]"
         >
           <CardHeader className="space-y-2">
             <CardTitle className="text-2xl font-semibold tracking-tight text-foreground">
               {role.title}
             </CardTitle>
-            <div className="flex justify-between">
+            <div className="flex flex-col gap-2 lg:flex-row lg:justify-between">
               <p className="text-sm text-muted-foreground">
                 {role.organisation}
               </p>
-              <Badge>{role.date}</Badge>
+              <Badge className="w-min whitespace-nowrap">{role.date}</Badge>
             </div>
           </CardHeader>
-          <CardContent className="space-y-5">
+          <CardContent className="flex h-full flex-col gap-5">
             <p className="text-sm leading-7 text-muted-foreground">
               {role.description}
             </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="mt-auto flex flex-wrap gap-2">
               {role.stack.map((item) => {
                 const Icon = stackIcons[item];
 

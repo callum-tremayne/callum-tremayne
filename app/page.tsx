@@ -44,6 +44,10 @@ export default function Home() {
             <Currently />
           </Section>
 
+          <Section title="Approach">
+            <HighlightsTimeline />
+          </Section>
+
           <Section
             id="experience"
             title="Enterprise Experience Highlights"
@@ -58,10 +62,6 @@ export default function Home() {
             showHeadingGlow
           >
             <ProjectsFeature />
-          </Section>
-
-          <Section title="Approach">
-            <HighlightsTimeline />
           </Section>
 
           <Section title="How I work">
