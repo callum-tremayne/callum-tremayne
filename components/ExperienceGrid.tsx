@@ -185,7 +185,7 @@ export function ExperienceGrid() {
                     </p>
                     {card.href && (
                       <div className="flex justify-center my-3">
-                        <Button>
+                        <Button variant="secondary">
                           <Link href={card.href} target="_blank">
                             View Here
                           </Link>
