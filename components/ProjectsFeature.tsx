@@ -1,96 +1,272 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
+import { MotionReveal } from "@/components/motion/motion-reveal";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { projects } from "@/lib/data/projects";
+import type { Project } from "@/lib/types/project";
+import { Badge } from "@/components/ui/badge";
 
-const projects = [
-  {
-    title: "Heartfelt Pages",
-    description:
-      "A full-stack digital platform that dynamically generates personalised webpages for end users.",
-    bullets: [
-      "PostgreSQL schema design",
-      "Dynamic routing with unique identifiers",
-      "Secure storage integration",
-    ],
-    cta: "View Case Study",
-    href: "#",
-  },
-  {
-    title: "Project Exit",
-    description:
-      "High-performance marketing landing page built with modular architecture and conversion-focused structure.",
-    bullets: [
-      "Reusable component system",
-      "Responsive layout patterns",
-      "Performance and accessibility optimisation",
-    ],
-    cta: "View Project",
-    href: "#",
-  },
-  {
-    title: "Talent Finder (In Progress)",
-    description:
-      "A database-driven recruitment system designed around structured candidate data and scalable search architecture.",
-    bullets: [
-      "Relational schema planning for filtering",
-      "Modular search and indexing approach",
-      "Extensible API structure",
-    ],
-    cta: "View Progress",
-    href: "#",
-  },
-];
+type ProjectModalProps = {
+  project: Project | null;
+  onClose: () => void;
+};
 
-export function ProjectsFeature() {
+function ProjectModal({ project, onClose }: ProjectModalProps) {
+  useEffect(() => {
+    if (!project) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [project, onClose]);
+
+  if (!project) return null;
+
   return (
-    <div className="space-y-6">
-      {projects.map((project, index) => (
-        <motion.div
-          key={project.title}
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.45 }}
-          whileHover={{ y: -2 }}
-        >
-          <Card
-            className={
-              index % 2 === 0
-                ? "border-primary/25 bg-[linear-gradient(145deg,rgba(57,255,136,0.08),rgba(17,22,27,0.85))]"
-                : "bg-[linear-gradient(145deg,rgba(17,22,27,0.85),rgba(57,255,136,0.05))]"
-            }
+    <div
+      className="fixed inset-0 z-70 flex items-center justify-center p-4 sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${project.title} case study`}
+    >
+      <button
+        type="button"
+        className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+        aria-label="Close modal"
+        onClick={onClose}
+      />
+
+      <div className="modal-scrollbar relative z-10 max-h-[88vh] w-full max-w-6xl overflow-auto rounded-2xl border border-border/80 bg-card/95 p-4 shadow-[0_0_50px_rgba(57,255,136,0.2)] sm:p-6 lg:p-8">
+        <div className="flex items-start justify-between gap-4 border-b border-border/70 pb-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+              Project Case Study
+            </p>
+            <h3 className="mt-2 text-2xl font-semibold text-foreground sm:text-3xl">
+              {project.title}
+            </h3>
+          </div>
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={onClose}
+            className="cursor-pointer"
           >
-            <CardContent className="p-6 sm:p-8">
-              <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-start">
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-semibold tracking-tight text-foreground">
-                    {project.title}
-                  </h3>
-                  <p className="max-w-2xl text-muted-foreground">{project.description}</p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {project.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2">
-                        <span aria-hidden className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="sm:pt-1">
-                  <Button asChild variant="secondary">
-                    <a href={project.href}>{project.cta}</a>
-                  </Button>
+            Close
+          </Button>
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[1.8fr_0.8fr] lg:items-start">
+          <article className="space-y-6">
+            <section className="space-y-3">
+              <h4 className="text-lg font-semibold text-foreground">
+                About the Project
+              </h4>
+              <p className="text-sm leading-7 text-muted-foreground">
+                {project.caseStudy.overview}
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h4 className="text-lg font-semibold text-foreground">
+                Challenge
+              </h4>
+              <p className="text-sm leading-7 text-muted-foreground">
+                {project.caseStudy.challenge}
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h4 className="text-lg font-semibold text-foreground">
+                Approach
+              </h4>
+              <p className="text-sm leading-7 text-muted-foreground">
+                {project.caseStudy.solution}
+              </p>
+            </section>
+
+            <section className="space-y-3">
+              <h4 className="text-lg font-semibold text-foreground">Outcome</h4>
+              <p className="text-sm leading-7 text-muted-foreground">
+                {project.caseStudy.outcome}
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h4 className="text-lg font-semibold text-foreground">
+                Interface Mockups
+              </h4>
+              <div className="grid gap-4">
+                <div className="space-y-2 overflow-hidden p-2">
+                  <div className="aspect-16/10 overflow-y-auto rounded-lg">
+                    <div className="relative w-full">
+                      <Image
+                        src={project.mockups.desktop}
+                        alt={`${project.title} desktop mockup`}
+                        width={1600}
+                        height={3200}
+                        sizes="(max-width: 640px) 100vw, 66vw"
+                        className="h-auto w-full"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-              {index < projects.length - 1 ? <Separator className="mt-7" /> : null}
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
+            </section>
+          </article>
+
+          <aside className="rounded-xl border border-border/70 bg-background/30 p-4 sm:p-5">
+            <h4 className="text-base font-semibold text-foreground">
+              Project Details
+            </h4>
+
+            <div className="mt-4 space-y-4 text-sm">
+              <div>
+                <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  Project Link
+                </p>
+                {project.projectUrl ? (
+                  <Link
+                    href={project.projectUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-1 inline-block text-primary transition-colors hover:text-primary/80"
+                  >
+                    Visit live project
+                  </Link>
+                ) : (
+                  <p className="mt-1 text-muted-foreground">Launching soon</p>
+                )}
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  Completed
+                </p>
+                <p className="mt-1 text-foreground">{project.completed}</p>
+              </div>
+
+              <div>
+                <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  Delivery Role
+                </p>
+                <p className="mt-1 text-foreground">{project.role}</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                  Tech Stack
+                </p>
+                <ul className="mt-2 space-y-2">
+                  {project.stack.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <li
+                        key={item.label}
+                        className="flex items-center gap-2 text-foreground"
+                      >
+                        <Icon className="h-4 w-4 text-primary" />
+                        {item.label}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
     </div>
+  );
+}
+
+export function ProjectsFeature() {
+  const PROJECTS_PER_BATCH = 3;
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [visibleCount, setVisibleCount] = useState(PROJECTS_PER_BATCH);
+  const visibleProjects = projects.slice(0, visibleCount);
+  const hiddenProjectsCount = Math.max(projects.length - visibleCount, 0);
+
+  return (
+    <>
+      <div className="space-y-6">
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {visibleProjects.map((project, index) => (
+            <MotionReveal key={project.title} delay={index * 0.05}>
+              <Card className="flex h-full flex-col transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_35px_rgba(57,255,136,0.22)]">
+                <CardHeader>
+                  <div className="mb-0 flex justify-between">
+                    <CardTitle className="text-lg leading-7">
+                      {project.title}
+                    </CardTitle>
+                    <Badge>{project.badge}</Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {project.shortDescription}
+                  </p>
+                </CardHeader>
+                <CardContent className="flex flex-1 flex-col">
+                  <p className="text-sm text-muted-foreground">
+                    {project.longDescription}
+                  </p>
+                  <MotionReveal className="mt-auto flex flex-wrap gap-2.5 pt-6">
+                    {project.badge === "Live" ? (
+                      <Button
+                        type="button"
+                        variant="secondary"
+                        onClick={() => setActiveProject(project)}
+                        className="cursor-pointer"
+                      >
+                        View Project
+                      </Button>
+                    ) : (
+                      <Button type="button" variant="secondary" disabled>
+                        Coming Soon
+                      </Button>
+                    )}
+                  </MotionReveal>
+                </CardContent>
+              </Card>
+            </MotionReveal>
+          ))}
+        </div>
+        {hiddenProjectsCount > 0 ? (
+          <div className="flex justify-center">
+            <MotionReveal className="mt-8">
+              <Button
+                type="button"
+                variant="secondary"
+                className="cursor-pointer"
+                onClick={() =>
+                  setVisibleCount((count) =>
+                    Math.min(count + PROJECTS_PER_BATCH, projects.length),
+                  )
+                }
+              >
+                View More +{hiddenProjectsCount}
+              </Button>
+            </MotionReveal>
+          </div>
+        ) : null}
+      </div>
+
+      <ProjectModal
+        project={activeProject}
+        onClose={() => setActiveProject(null)}
+      />
+    </>
   );
 }
