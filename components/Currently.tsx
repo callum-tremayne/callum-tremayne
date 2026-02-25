@@ -20,6 +20,8 @@ import {
   SiTypescript,
   SiVercel,
 } from "react-icons/si";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 const stackIcons: Record<string, IconType> = {
   "C#": SiDotnet,
@@ -83,48 +85,58 @@ const roles = [
 
 export function Currently() {
   return (
-    <div className="grid gap-4 md:grid-cols-2">
-      {roles.map((role) => (
-        <Card
-          key={role.title}
-          className="flex h-full flex-col transition-all duration-200 hover:border-primary/40 hover:shadow-[0_0_24px_rgba(57,255,136,0.25)]"
-        >
-          <CardHeader className="space-y-2">
-            <CardTitle className="text-2xl font-semibold tracking-tight text-foreground">
-              {role.title}
-            </CardTitle>
-            <div className="flex flex-col gap-2 lg:flex-row lg:justify-between">
-              <p className="text-sm text-muted-foreground">
-                {role.organisation}
+    <>
+      <div className="grid gap-4 md:grid-cols-2">
+        {roles.map((role) => (
+          <Card
+            key={role.title}
+            className="flex h-full flex-col transition-all duration-200 hover:border-primary/40 hover:shadow-[0_0_24px_rgba(57,255,136,0.25)]"
+          >
+            <CardHeader className="space-y-2">
+              <CardTitle className="text-2xl font-semibold tracking-tight text-foreground">
+                {role.title}
+              </CardTitle>
+              <div className="flex flex-col gap-2 lg:flex-row lg:justify-between">
+                <p className="text-sm text-muted-foreground">
+                  {role.organisation}
+                </p>
+                <Badge className="w-min whitespace-nowrap">{role.date}</Badge>
+              </div>
+            </CardHeader>
+            <CardContent className="flex h-full flex-col gap-5">
+              <p className="text-sm leading-7 text-muted-foreground">
+                {role.description}
               </p>
-              <Badge className="w-min whitespace-nowrap">{role.date}</Badge>
-            </div>
-          </CardHeader>
-          <CardContent className="flex h-full flex-col gap-5">
-            <p className="text-sm leading-7 text-muted-foreground">
-              {role.description}
-            </p>
-            <div className="mt-auto flex flex-wrap gap-2">
-              {role.stack.map((item) => {
-                const Icon = stackIcons[item];
+              <div className="mt-auto flex flex-wrap gap-2">
+                {role.stack.map((item) => {
+                  const Icon = stackIcons[item];
 
-                return (
-                  <Badge
-                    key={item}
-                    variant="secondary"
-                    className="inline-flex items-center gap-1.5"
-                  >
-                    {Icon ? (
-                      <Icon aria-hidden className="h-3.5 w-3.5 text-primary" />
-                    ) : null}
-                    {item}
-                  </Badge>
-                );
-              })}
-            </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+                  return (
+                    <Badge
+                      key={item}
+                      variant="secondary"
+                      className="inline-flex items-center gap-1.5"
+                    >
+                      {Icon ? (
+                        <Icon
+                          aria-hidden
+                          className="h-3.5 w-3.5 text-primary"
+                        />
+                      ) : null}
+                      {item}
+                    </Badge>
+                  );
+                })}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <div className="flex justify-center mt-6">
+        <Button asChild variant="default">
+          <Link href="/cv?print=1">View CV</Link>
+        </Button>
+      </div>
+    </>
   );
 }

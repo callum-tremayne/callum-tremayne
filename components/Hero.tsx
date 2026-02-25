@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { GrDocument } from "react-icons/gr";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -53,11 +54,9 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-3 pt-4">
-            <Button asChild>
-              <Link href="#projects">View Projects</Link>
-            </Button>
-            <Button asChild variant="secondary">
+            <Button asChild variant="default">
               <Link href="/cv?print=1" target="_blank">
+                <GrDocument />
                 View CV
               </Link>
             </Button>

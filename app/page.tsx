@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { BiSolidEnvelope } from "react-icons/bi";
+import { GrDocument } from "react-icons/gr";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 
 export default function Home() {
@@ -100,6 +101,12 @@ export default function Home() {
                     >
                       <SiGithub />
                       GitHub
+                    </Link>
+                  </Button>
+                  <Button asChild variant="secondary" size="sm">
+                    <Link href="/cv?print=1" target="_blank">
+                      <GrDocument />
+                      View CV
                     </Link>
                   </Button>
                 </div>
