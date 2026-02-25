@@ -36,7 +36,7 @@ export function ContactSection() {
             </Link>
           </Button>
           <Button asChild variant="secondary" size="sm">
-            <Link href="/cv?print=1" target="_blank">
+            <Link href="/cv" target="_blank">
               <GrDocument />
               View CV
             </Link>

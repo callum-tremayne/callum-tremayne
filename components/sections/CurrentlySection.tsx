@@ -134,7 +134,9 @@ export function CurrentlySection() {
       </div>
       <div className="flex justify-center mt-6">
         <Button asChild variant="default">
-          <Link href="/cv?print=1">View CV</Link>
+          <Link href="/cv" target="_blank">
+            View CV
+          </Link>
         </Button>
       </div>
     </>

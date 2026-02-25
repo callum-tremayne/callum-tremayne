@@ -35,7 +35,7 @@ const cards: ExperienceCard[] = [
     ],
     details:
       "This project required cross-team coordination between design, content, and engineering while ensuring scalable implementation inside a structured enterprise CMS architecture.",
-    href: "https://wwww.leedsbeckett.ac.uk/",
+    href: "https://www.leedsbeckett.ac.uk/",
   },
   {
     title: "UCAS Tariff Calculator",
@@ -191,7 +191,7 @@ export function ExperienceSection() {
                         </p>
                         {card.href && (
                           <div className="my-3 flex justify-center">
-                            <Button variant="secondary">
+                            <Button asChild variant="secondary">
                               <Link href={card.href} target="_blank">
                                 View Here
                               </Link>
