@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { Container } from "@/components/Container";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -53,13 +54,15 @@ export function Hero() {
 
           <div className="flex flex-wrap gap-3 pt-4">
             <Button asChild>
-              <a href="#projects">View Projects</a>
+              <Link href="#projects">View Projects</Link>
             </Button>
             <Button asChild variant="secondary">
-              <a href="#">Download CV</a>
+              <Link href="/cv?print=1" target="_blank">
+                View CV
+              </Link>
             </Button>
             <Button asChild variant="secondary">
-              <a href="#contact">Get in Touch</a>
+              <Link href="#contact">Get in Touch</Link>
             </Button>
           </div>
         </motion.div>

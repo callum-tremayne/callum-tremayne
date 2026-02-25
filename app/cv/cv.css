@@ -1,0 +1,252 @@
+.cv-page {
+  min-height: 100vh;
+  background: #fff;
+  color: #0a0a0a;
+  padding: 12mm 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.cv-sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 16mm 14mm 14mm;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-name {
+  font-size: 24px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.cv-meta {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #222;
+}
+
+.cv-section {
+  margin-top: 14px;
+}
+
+.cv-h2 {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #111;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+
+.cv-h3 {
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.cv-p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #111;
+  margin-top: 6px;
+}
+
+.cv-muted {
+  color: #555;
+  font-size: 12px;
+}
+
+.cv-skill-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  .cv-skill-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.cv-skill-block {
+  border: 1px solid #efefef;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.cv-role {
+  margin-top: 12px;
+}
+
+.cv-role-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cv-role-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #111;
+}
+
+.cv-role-org {
+  font-size: 12px;
+  color: #444;
+  margin-top: 1px;
+}
+
+.cv-role-dates {
+  font-size: 12px;
+  color: #555;
+  white-space: nowrap;
+}
+
+.cv-ul {
+  margin-top: 8px;
+  padding-left: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #111;
+}
+
+.cv-ul li {
+  margin-top: 4px;
+}
+
+.cv-ul-compact {
+  margin-top: 6px;
+}
+
+.cv-project {
+  margin-top: 12px;
+}
+
+.cv-project-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.cv-tag {
+  font-size: 11px;
+  color: #555;
+  white-space: nowrap;
+}
+
+.cv-edu {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 8px;
+  align-items: baseline;
+}
+
+.cv-compact-role {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cv-compact-title {
+  font-weight: 800;
+  color: #111;
+}
+
+.cv-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #efefef;
+  padding-top: 8px;
+  font-size: 11px;
+  color: #444;
+}
+
+.cv-page-break {
+  height: 0;
+  break-after: page;
+  page-break-after: always;
+}
+
+@media screen {
+  .cv-page {
+    background: #f4f6f8;
+    padding: 24px 0 48px;
+  }
+
+  .cv-sheet {
+    margin: 0 auto 24px;
+    box-shadow:
+      0 8px 24px rgba(15, 23, 42, 0.08),
+      0 2px 8px rgba(15, 23, 42, 0.06);
+  }
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body,
+  .cv-page {
+    background: #fff !important;
+  }
+
+  .cv-page {
+    min-height: auto;
+    padding: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .site-header,
+  .site-footer {
+    display: none !important;
+  }
+
+  .cv-sheet {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 16mm 14mm 14mm;
+    box-shadow: none !important;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  .cv-skill-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .cv-page-break {
+    display: none;
+  }
+
+  .cv-sheet {
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .cv-sheet:last-of-type {
+    break-after: auto;
+    page-break-after: auto;
+  }
+}
