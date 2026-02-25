@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { Glow } from "@/components/Glow";
+import { Glow } from "@/components/layout/Glow";
 import { cn } from "@/lib/utils";
 
 type SectionProps = {
@@ -36,7 +36,9 @@ export function Section({
       {split ? (
         <div className="relative z-10 grid gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.35fr)] lg:gap-16">
           <header className="relative space-y-4">
-            {showHeadingGlow ? <Glow className="-left-12 top-0 h-28 w-28" /> : null}
+            {showHeadingGlow ? (
+              <Glow className="-left-12 top-0 h-28 w-28" />
+            ) : null}
             <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
               {title}
             </h2>
@@ -54,7 +56,9 @@ export function Section({
       ) : (
         <>
           <header className="relative z-10 mb-8 space-y-3">
-            {showHeadingGlow ? <Glow className="-left-12 top-0 h-28 w-28" /> : null}
+            {showHeadingGlow ? (
+              <Glow className="-left-12 top-0 h-28 w-28" />
+            ) : null}
             <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
               {title}
             </h2>

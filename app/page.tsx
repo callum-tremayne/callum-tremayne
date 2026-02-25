@@ -1,21 +1,17 @@
-import { Container } from "@/components/Container";
-import { CredentialStrip } from "@/components/CredentialStrip";
-import { Currently } from "@/components/Currently";
-import { ExperienceGrid } from "@/components/ExperienceGrid";
-import { Footer } from "@/components/Footer";
-import { Hero } from "@/components/Hero";
-import { HighlightsTimeline } from "@/components/HighlightsTimeline";
-import { IntroSection } from "@/components/IntroSection";
-import { NoiseOverlay } from "@/components/NoiseOverlay";
-import { ProjectsFeature } from "@/components/ProjectsFeature";
-import { Section } from "@/components/Section";
-import { WorkAndLookingFor } from "@/components/WorkAndLookingFor";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import Link from "next/link";
-import { BiSolidEnvelope } from "react-icons/bi";
-import { GrDocument } from "react-icons/gr";
-import { SiGithub, SiLinkedin } from "react-icons/si";
+import { NoiseOverlay } from "@/components/layout/NoiseOverlay";
+import { Container } from "@/components/layout/Container";
+import { Section } from "@/components/layout/Section";
+
+import { HeroSection } from "@/components/sections/HeroSection";
+import { TechStackSection } from "@/components/sections/TechStackSection";
+import { IntroSection } from "@/components/sections/IntroSection";
+import { CurrentlySection } from "@/components/sections/CurrentlySection";
+import { ApproachSection } from "@/components/sections/ApproachSection";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { Footer } from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -27,8 +23,8 @@ export default function Home() {
       />
 
       <main className="relative z-10">
-        <Hero />
-        <CredentialStrip />
+        <HeroSection />
+        <TechStackSection />
 
         <Container>
           <Section
@@ -44,11 +40,11 @@ export default function Home() {
             title="Currently"
             description="Enterprise engineering by day. Modern product development by design."
           >
-            <Currently />
+            <CurrentlySection />
           </Section>
 
           <Section title="Approach">
-            <HighlightsTimeline />
+            <ApproachSection />
           </Section>
 
           <Section
@@ -56,7 +52,7 @@ export default function Home() {
             title="Enterprise Experience Highlights"
             showHeadingGlow
           >
-            <ExperienceGrid />
+            <ExperienceSection />
           </Section>
 
           <Section
@@ -64,54 +60,15 @@ export default function Home() {
             title="Selected Project Highlights"
             showHeadingGlow
           >
-            <ProjectsFeature />
+            <ProjectsSection />
           </Section>
 
           <Section title="" showHeadingGlow>
-            <WorkAndLookingFor />
+            <AboutSection />
           </Section>
 
           <Section id="contact" title="Get in touch">
-            <Card>
-              <CardContent className="space-y-5 p-6 sm:p-8">
-                <p className="text-muted-foreground">
-                  If you&apos;d like to connect, collaborate, or discuss
-                  potential opportunities, feel free to get in touch.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Button asChild variant="secondary" size="sm">
-                    <Link href="mailto:callum.tremayne@gmail.com">
-                      <BiSolidEnvelope />
-                      Email
-                    </Link>
-                  </Button>
-                  <Button asChild variant="secondary" size="sm">
-                    <Link
-                      href="https://www.linkedin.com/in/callum-tremayne/"
-                      target="_blank"
-                    >
-                      <SiLinkedin />
-                      LinkedIn
-                    </Link>
-                  </Button>
-                  <Button asChild variant="secondary" size="sm">
-                    <Link
-                      href="https://github.com/callum-tremayne/"
-                      target="_blank"
-                    >
-                      <SiGithub />
-                      GitHub
-                    </Link>
-                  </Button>
-                  <Button asChild variant="secondary" size="sm">
-                    <Link href="/cv?print=1" target="_blank">
-                      <GrDocument />
-                      View CV
-                    </Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <ContactSection />
           </Section>
         </Container>
         <Footer />

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { Container } from "@/components/Container";
+import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { GrDocument } from "react-icons/gr";
@@ -14,7 +14,7 @@ const navLinks = [
   { href: "#contact", label: "Contact" },
 ];
 
-export function Hero() {
+export function HeroSection() {
   return (
     <header className="relative overflow-hidden pt-8 sm:pt-10">
       <Container>

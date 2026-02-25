@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { MotionReveal } from "@/components/motion/motion-reveal";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import Link from "next/link";
 
 type ExperienceCard = {
@@ -107,7 +107,7 @@ const cards: ExperienceCard[] = [
   },
 ];
 
-export function ExperienceGrid() {
+export function ExperienceSection() {
   const CARDS_PER_BATCH = 2;
   const [visibleCount, setVisibleCount] = useState(CARDS_PER_BATCH);
   const visibleCards = cards.slice(0, visibleCount);
@@ -124,81 +124,83 @@ export function ExperienceGrid() {
             <MotionReveal key={card.title} delay={index * 0.05}>
               <div className="min-w-0">
                 <Card className="h-full min-w-0 transition-all duration-200 hover:border-primary/40 hover:shadow-[0_0_26px_rgba(57,255,136,0.35)]">
-                <CardHeader className="space-y-3">
-                  <CardTitle className="text-lg text-foreground">
-                    {card.title}
-                  </CardTitle>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge
-                      variant="default"
-                      className="max-w-full whitespace-normal wrap-break-word"
-                    >
-                      {card.contextTag}
-                    </Badge>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="space-y-4">
-                  <p className="text-sm leading-7 text-foreground">
-                    {card.summary}
-                  </p>
-
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    {previewBullets.map((bullet) => (
-                      <li
-                        key={bullet}
-                        className="flex min-w-0 items-start gap-2"
+                  <CardHeader className="space-y-3">
+                    <CardTitle className="text-lg text-foreground">
+                      {card.title}
+                    </CardTitle>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge
+                        variant="default"
+                        className="max-w-full whitespace-normal wrap-break-word"
                       >
-                        <span
-                          aria-hidden
-                          className="mt-2 h-1.5 w-1.5 rounded-full bg-primary"
-                        />
-                        <span className="min-w-0 wrap-break-word">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <details className="group rounded-lg border border-border/80 bg-background/30 px-3 py-2 open:bg-background/50">
-                    <summary className="flex cursor-pointer list-none items-center justify-between gap-2 text-sm font-medium text-foreground marker:content-none">
-                      View more details
-                      <ChevronDown
-                        aria-hidden
-                        className="h-4 w-4 text-primary transition-transform duration-200 group-open:rotate-180"
-                      />
-                    </summary>
-
-                    <div className="mt-3 space-y-3">
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        {remainingBullets.map((bullet) => (
-                          <li
-                            key={bullet}
-                            className="flex min-w-0 items-start gap-2"
-                          >
-                            <span
-                              aria-hidden
-                              className="mt-2 h-1.5 w-1.5 rounded-full bg-primary"
-                            />
-                            <span className="min-w-0 wrap-break-word">
-                              {bullet}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                      <p className="text-sm leading-7 text-muted-foreground">
-                        {card.details}
-                      </p>
-                      {card.href && (
-                        <div className="my-3 flex justify-center">
-                          <Button variant="secondary">
-                            <Link href={card.href} target="_blank">
-                              View Here
-                            </Link>
-                          </Button>
-                        </div>
-                      )}
+                        {card.contextTag}
+                      </Badge>
                     </div>
-                  </details>
-                </CardContent>
+                  </CardHeader>
+
+                  <CardContent className="space-y-4">
+                    <p className="text-sm leading-7 text-foreground">
+                      {card.summary}
+                    </p>
+
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {previewBullets.map((bullet) => (
+                        <li
+                          key={bullet}
+                          className="flex min-w-0 items-start gap-2"
+                        >
+                          <span
+                            aria-hidden
+                            className="mt-2 h-1.5 w-1.5 rounded-full bg-primary"
+                          />
+                          <span className="min-w-0 wrap-break-word">
+                            {bullet}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <details className="group rounded-lg border border-border/80 bg-background/30 px-3 py-2 open:bg-background/50">
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-2 text-sm font-medium text-foreground marker:content-none">
+                        View more details
+                        <ChevronDown
+                          aria-hidden
+                          className="h-4 w-4 text-primary transition-transform duration-200 group-open:rotate-180"
+                        />
+                      </summary>
+
+                      <div className="mt-3 space-y-3">
+                        <ul className="space-y-2 text-sm text-muted-foreground">
+                          {remainingBullets.map((bullet) => (
+                            <li
+                              key={bullet}
+                              className="flex min-w-0 items-start gap-2"
+                            >
+                              <span
+                                aria-hidden
+                                className="mt-2 h-1.5 w-1.5 rounded-full bg-primary"
+                              />
+                              <span className="min-w-0 wrap-break-word">
+                                {bullet}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                        <p className="text-sm leading-7 text-muted-foreground">
+                          {card.details}
+                        </p>
+                        {card.href && (
+                          <div className="my-3 flex justify-center">
+                            <Button variant="secondary">
+                              <Link href={card.href} target="_blank">
+                                View Here
+                              </Link>
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </details>
+                  </CardContent>
                 </Card>
               </div>
             </MotionReveal>

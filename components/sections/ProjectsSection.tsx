@@ -193,7 +193,7 @@ function ProjectModal({ project, onClose }: ProjectModalProps) {
   );
 }
 
-export function ProjectsFeature() {
+export function ProjectsSection() {
   const PROJECTS_PER_BATCH = 3;
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [visibleCount, setVisibleCount] = useState(PROJECTS_PER_BATCH);

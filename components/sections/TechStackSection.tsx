@@ -1,4 +1,4 @@
-import { Container } from "@/components/Container";
+import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/badge";
 import { IconType } from "react-icons";
 import {
@@ -31,7 +31,7 @@ const credentials: { label: string; icon: IconType }[] = [
   { label: "JIRA", icon: SiJira },
 ];
 
-export function CredentialStrip() {
+export function TechStackSection() {
   const topRow = credentials.slice(0, 5);
   const bottomRow = credentials.slice(5);
 

@@ -8,7 +8,7 @@ const items = [
   "Ship production-ready features with long-term maintainability in mind",
 ];
 
-export function HighlightsTimeline() {
+export function ApproachSection() {
   return (
     <div className="space-y-5 sm:space-y-6">
       <p className="leading-8 text-muted-foreground">

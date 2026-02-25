@@ -1,5 +1,4 @@
-import { Container } from "@/components/Container";
-import Link from "next/link";
+import { Container } from "@/components/layout/Container";
 
 export function Footer() {
   return (

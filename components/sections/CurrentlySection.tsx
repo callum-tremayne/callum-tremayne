@@ -20,7 +20,7 @@ import {
   SiTypescript,
   SiVercel,
 } from "react-icons/si";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import Link from "next/link";
 
 const stackIcons: Record<string, IconType> = {
@@ -83,7 +83,7 @@ const roles = [
   },
 ];
 
-export function Currently() {
+export function CurrentlySection() {
   return (
     <>
       <div className="grid gap-4 md:grid-cols-2">

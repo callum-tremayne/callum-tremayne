@@ -1,4 +1,4 @@
-import { Glow } from "@/components/Glow";
+import { Glow } from "@/components/layout/Glow";
 import { Badge } from "@/components/ui/badge";
 
 const howIWork = [
@@ -15,7 +15,7 @@ const lookingForTags = [
   "Clear ownership",
 ];
 
-export function WorkAndLookingFor() {
+export function AboutSection() {
   return (
     <div className="relative isolate">
       <Glow className="-top-20 left-1/2 h-56 w-56 -translate-x-1/2 opacity-80" />
