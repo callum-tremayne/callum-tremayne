@@ -3,8 +3,45 @@
   background: #fff;
   color: #0a0a0a;
   padding: 12mm 0;
+  overflow-x: hidden;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.cv-download-button {
+  position: fixed;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  z-index: 40;
+  border: 1px solid #d9d9d9;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow:
+    0 10px 24px rgba(15, 23, 42, 0.12),
+    0 2px 8px rgba(15, 23, 42, 0.08);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.cv-download-button:hover {
+  transform: translateY(-50%) translateX(-2px);
+  border-color: #bcbcbc;
+  box-shadow:
+    0 14px 28px rgba(15, 23, 42, 0.16),
+    0 4px 12px rgba(15, 23, 42, 0.1);
+}
+
+.cv-download-button:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 2px;
 }
 
 .cv-sheet {
@@ -182,6 +219,23 @@
 }
 
 @media screen {
+  /* .cv-sheet {
+    width: min(210mm, calc(100vw - 24px));
+    min-height: auto;
+    padding: 16px 14px 14px;
+  } */
+
+  .cv-download-button {
+    top: auto;
+    right: 16px;
+    bottom: 16px;
+    transform: none;
+  }
+
+  .cv-download-button:hover {
+    transform: translateY(-2px);
+  }
+
   .cv-page {
     background: #f4f6f8;
     padding: 24px 0 48px;
@@ -192,6 +246,32 @@
     box-shadow:
       0 8px 24px rgba(15, 23, 42, 0.08),
       0 2px 8px rgba(15, 23, 42, 0.06);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .cv-page {
+    padding: 12px 0 84px;
+  }
+
+  .cv-sheet {
+    width: calc(100vw - 16px);
+    margin: 0 auto 12px;
+    padding: 14px 12px 12px;
+  }
+
+  .cv-role-top,
+  .cv-project-top,
+  .cv-edu,
+  .cv-compact-role {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .cv-role-dates,
+  .cv-tag {
+    white-space: normal;
   }
 }
 
@@ -248,5 +328,9 @@
   .cv-sheet:last-of-type {
     break-after: auto;
     page-break-after: auto;
+  }
+
+  .cv-download-button {
+    display: none !important;
   }
 }

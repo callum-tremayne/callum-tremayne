@@ -1,6 +1,5 @@
 // app/cv/page.tsx
 import type { Metadata } from "next";
-import { AutoPrint } from "./auto-print";
 
 export const metadata: Metadata = {
   title: "Callum Tremayne — CV",
@@ -10,7 +9,15 @@ export const metadata: Metadata = {
 export default function CVPage() {
   return (
     <main className="cv-page">
-      <AutoPrint />
+      <a
+        className="cv-download-button"
+        href="/Callum Tremayne - CV.pdf"
+        download
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Download CV (PDF)
+      </a>
       {/* PAGE 1 */}
       <section className="cv-sheet">
         {/* Header */}

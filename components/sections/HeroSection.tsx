@@ -55,7 +55,7 @@ export function HeroSection() {
 
           <div className="flex flex-wrap gap-3 pt-4">
             <Button asChild variant="default">
-              <Link href="/cv?print=1" target="_blank">
+              <Link href="/cv" target="_blank">
                 <GrDocument />
                 View CV
               </Link>
