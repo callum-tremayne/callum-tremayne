@@ -105,7 +105,7 @@ export default function CVPage() {
           <article className="cv-role">
             <div className="cv-role-top">
               <div>
-                <h3 className="cv-role-title">Digital Developer</h3>
+                <h3 className="cv-role-title">Full-Stack Developer</h3>
                 <p className="cv-role-org">Leeds Beckett University</p>
               </div>
               <p className="cv-role-dates">2022 – Present</p>
@@ -228,7 +228,7 @@ export default function CVPage() {
           <article className="cv-project">
             <div className="cv-project-top">
               <h3 className="cv-role-title">Project Exit</h3>
-              <span className="cv-tag">Next.js · Tailwind</span>
+              <span className="cv-tag">Next.js · TailwindCSS</span>
             </div>
             <p className="cv-p">
               High-performance marketing landing page built with modular
@@ -295,7 +295,7 @@ export default function CVPage() {
 
           <div className="cv-compact-role">
             <div>
-              <span className="cv-compact-title">Bar Manager</span>
+              <span className="cv-role-title">Bar Manager</span>
               <span className="cv-muted"> — Kettle Black</span>
             </div>
             <span className="cv-muted">2019 – 2022</span>
@@ -309,7 +309,7 @@ export default function CVPage() {
 
           <div className="cv-compact-role">
             <div>
-              <span className="cv-compact-title">Production Engineer</span>
+              <span className="cv-role-title">Production Engineer</span>
               <span className="cv-muted"> — Bibby Turboflex</span>
             </div>
             <span className="cv-muted">2013 – 2018</span>

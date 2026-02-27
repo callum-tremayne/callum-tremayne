@@ -29,7 +29,7 @@ export function AboutSection() {
             {howIWork.map((item) => (
               <li
                 key={item}
-                className="text-base leading-8 text-muted-foreground"
+                className="text-base leading-8 text-muted-foreground hover:text-foreground"
               >
                 {item}
               </li>

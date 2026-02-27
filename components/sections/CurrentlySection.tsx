@@ -85,7 +85,7 @@ const roles = [
 
 export function CurrentlySection() {
   return (
-    <>
+    <div className="space-y-6">
       <div className="grid gap-4 md:grid-cols-2">
         {roles.map((role) => (
           <Card
@@ -132,13 +132,13 @@ export function CurrentlySection() {
           </Card>
         ))}
       </div>
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-8">
         <Button asChild variant="default">
           <Link href="/cv" target="_blank">
             View CV
           </Link>
         </Button>
       </div>
-    </>
+    </div>
   );
 }
