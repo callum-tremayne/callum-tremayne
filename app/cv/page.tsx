@@ -275,7 +275,7 @@ export default function CVPage() {
               <h3 className="cv-role-title">MSc Computing</h3>
               <p className="cv-muted">Sheffield Hallam University</p>
             </div>
-            <p className="cv-muted">2018 – 2022</p>
+            <p className="cv-muted">2021 – 2022</p>
           </div>
           <div className="cv-edu">
             <div>
@@ -285,7 +285,7 @@ export default function CVPage() {
               </h3>
               <p className="cv-muted">Sheffield Hallam University</p>
             </div>
-            <p className="cv-muted">2018 – 2022</p>
+            <p className="cv-muted">2018 – 2021</p>
           </div>
         </section>
 
