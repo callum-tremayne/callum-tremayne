@@ -9,9 +9,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Callum Tremayne | Full-Stack Developer",
+  title: {
+    default: "Callum Tremayne | Full-Stack Developer",
+    template: "%s | Callum Tremayne",
+  },
   description:
     "Personal portfolio homepage for Callum Tremayne, Full-Stack Developer.",
+  applicationName: "Callum Tremayne - Full-Stack Developer",
 
   authors: [{ name: "Callum Tremayne" }],
   creator: "Callum Tremayne",
