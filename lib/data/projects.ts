@@ -11,6 +11,35 @@ import type { Project } from "@/lib/types/project";
 
 export const projects: Project[] = [
   {
+    title: "Project Exit",
+    badge: "Live",
+    shortDescription: "High-Performance Marketing Website",
+    longDescription:
+      "A modern, conversion-focused marketing website designed to communicate the Project Exit platform clearly through trust-driven messaging, intuitive layouts, and high-performance frontend implementation.",
+    projectUrl: "https://projectexit.co.uk",
+    completed: "May 2026",
+    role: "Frontend Development + UI Implementation",
+    stack: [
+      { label: "Next.js", icon: SiNextdotjs },
+      { label: "TypeScript", icon: SiTypescript },
+      { label: "Tailwind CSS", icon: SiTailwindcss },
+      { label: "Vercel Hosting", icon: SiVercel },
+    ],
+    caseStudy: {
+      overview:
+        "Project Exit is a business exit platform designed to help founders explore acquisition and exit opportunities. My involvement focused on developing the public-facing marketing website and landing pages that introduce the platform, communicate value clearly, and drive enquiries.",
+      challenge:
+        "The challenge was to transform complex service messaging into a clear and engaging frontend experience while maintaining strong performance, responsiveness, and visual credibility across devices.",
+      solution:
+        "I developed the frontend website using Next.js, TypeScript, and Tailwind CSS, building modular page sections, responsive layouts, and conversion-focused UI patterns. The implementation prioritised speed, accessibility, and clean user journeys while integrating seamlessly with the wider platform ecosystem.",
+      outcome:
+        "The marketing website successfully launched as part of the wider Project Exit platform rollout, delivering a polished, high-performance frontend experience designed to support engagement, trust, and lead generation.",
+    },
+    mockups: {
+      desktop: "/projectexit/projectexit.co.uk.webp",
+    },
+  },
+  {
     title: "Tremayne Digital Solutions",
     badge: "Live",
     shortDescription: "Brand & Platform Development",
@@ -68,35 +97,6 @@ export const projects: Project[] = [
     },
     mockups: {
       desktop: "/heartfeltpages/heartfeltpages.co.uk.webp",
-    },
-  },
-  {
-    title: "Project Exit",
-    badge: "In progress",
-    shortDescription: "High-Performance Landing Page",
-    longDescription:
-      "A conversion-driven landing page designed to showcase a business exit platform with clear value messaging, intuitive journey sections, and optimised UI to drive enquiries and engagement.",
-    completed: "In progress",
-    role: "Strategy + Design + Frontend Development",
-    stack: [
-      { label: "Next.js", icon: SiNextdotjs },
-      { label: "TypeScript", icon: SiTypescript },
-      { label: "Tailwind CSS", icon: SiTailwindcss },
-      { label: "Supabase", icon: SiSupabase },
-      { label: "Vercel Hosting", icon: SiVercel },
-    ],
-    caseStudy: {
-      overview:
-        "Project Exit is a high-trust landing page experience for founders exploring business exit pathways. The objective is to communicate authority quickly and guide users into qualified conversations.",
-      challenge:
-        "The challenge was to present complex service messaging in a concise structure without losing credibility. The page needed clarity, hierarchy, and strong CTA placement.",
-      solution:
-        "I designed a narrative-led page architecture with modular sections, trust-focused visual styling, and performance-first implementation to keep the experience fast and persuasive.",
-      outcome:
-        "The project is currently in delivery, with content structure and interaction patterns locked in for final production rollout.",
-    },
-    mockups: {
-      desktop: "/bg.svg",
     },
   },
   {

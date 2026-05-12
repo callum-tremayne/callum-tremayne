@@ -201,10 +201,52 @@ export default function CVPage() {
         {/* Selected Projects */}
         <section className="cv-section">
           <h2 className="cv-h2">Selected Projects</h2>
-
           <article className="cv-project">
             <div className="cv-project-top">
-              <h3 className="cv-role-title">Heartfelt Pages</h3>
+              <h3 className="cv-role-title">
+                <a
+                  href="https://www.projectexit.co.uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Project Exit - projectexit.co.uk
+                </a>
+              </h3>
+              <span className="cv-tag">Next.js · TypeScript · TailwindCSS</span>
+            </div>
+
+            <p className="cv-p">
+              Developed the frontend marketing website and landing pages for a
+              business exit platform focused on trust, clarity, and lead
+              generation.
+            </p>
+
+            <ul className="cv-ul">
+              <li>
+                Built responsive, high-performance frontend pages using Next.js,
+                TypeScript, and Tailwind CSS.
+              </li>
+              <li>
+                Developed reusable UI components and modular page structures for
+                scalable content management.
+              </li>
+              <li>
+                Optimised accessibility, responsiveness, and performance to
+                deliver a polished conversion-focused user experience.
+              </li>
+            </ul>
+          </article>
+          <article className="cv-project">
+            <div className="cv-project-top">
+              <h3 className="cv-role-title">
+                <a
+                  href="https://www.heartfeltpages.co.uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Heartfelt Pages - heartfeltpages.co.uk
+                </a>
+              </h3>
               <span className="cv-tag">Next.js · Supabase</span>
             </div>
             <p className="cv-p">
@@ -222,27 +264,6 @@ export default function CVPage() {
                 storage workflows.
               </li>
               <li>Deployed via Vercel with performance optimisation.</li>
-            </ul>
-          </article>
-
-          <article className="cv-project">
-            <div className="cv-project-top">
-              <h3 className="cv-role-title">Project Exit</h3>
-              <span className="cv-tag">Next.js · TailwindCSS</span>
-            </div>
-            <p className="cv-p">
-              High-performance marketing landing page built with modular
-              architecture.
-            </p>
-            <ul className="cv-ul">
-              <li>
-                Designed reusable component system and responsive layout
-                patterns.
-              </li>
-              <li>
-                Optimised accessibility and performance for a clean
-                conversion-focused experience.
-              </li>
             </ul>
           </article>
 
