@@ -205,6 +205,43 @@ export default function CVPage() {
             <div className="cv-project-top">
               <h3 className="cv-role-title">
                 <a
+                  href="https://hathersagefc.co.uk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Hathersage FC - hathersagefc.co.uk
+                </a>
+              </h3>
+              <span className="cv-tag">Next.js · TypeScript · TailwindCSS</span>
+            </div>
+
+            <p className="cv-p">
+              Designed and developed the official website for Hathersage FC,
+              creating a modern grassroots football platform for fixtures,
+              results, squad profiles, news, sponsors, events, and club
+              information.
+            </p>
+
+            <ul className="cv-ul">
+              <li>
+                Built a responsive, SEO-friendly website using Next.js,
+                TypeScript, and Tailwind CSS.
+              </li>
+              <li>
+                Developed reusable UI sections for fixtures, results, league
+                tables, squad profiles, sponsors, news, events, and club
+                content.
+              </li>
+              <li>
+                Integrated automated Full-Time data syncing to keep fixtures,
+                results, and league table information up to date.
+              </li>
+            </ul>
+          </article>
+          <article className="cv-project">
+            <div className="cv-project-top">
+              <h3 className="cv-role-title">
+                <a
                   href="https://www.projectexit.co.uk"
                   target="_blank"
                   rel="noopener noreferrer"

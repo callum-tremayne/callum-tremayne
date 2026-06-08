@@ -1,5 +1,6 @@
 import {
   SiNextdotjs,
+  SiPayloadcms,
   SiShadcnui,
   SiSupabase,
   SiTailwindcss,
@@ -10,6 +11,37 @@ import {
 import type { Project } from "@/lib/types/project";
 
 export const projects: Project[] = [
+  {
+    title: "Hathersage FC",
+    badge: "Live",
+    shortDescription: "Official Grassroots Football Club Website",
+    longDescription:
+      "A modern, community-focused website for Hathersage FC, designed to present fixtures, results, squad information, news, sponsors, and club updates through a polished, responsive frontend experience.",
+    projectUrl: "https://hathersagefc.co.uk",
+    completed: "June 2026",
+    role: "Frontend Development + UI Implementation",
+    stack: [
+      { label: "Next.js", icon: SiNextdotjs },
+      { label: "TypeScript", icon: SiTypescript },
+      { label: "Tailwind CSS", icon: SiTailwindcss },
+      { label: "Supabase", icon: SiSupabase },
+      { label: "Vercel Hosting", icon: SiVercel },
+      { label: "PayloadCMS TBC", icon: SiPayloadcms },
+    ],
+    caseStudy: {
+      overview:
+        "Hathersage FC is the official website for a Derbyshire grassroots football club. The project provides a central home for club information, fixtures, results, league data, squad profiles, news, sponsors, events, and contact details.",
+      challenge:
+        "The challenge was to create a professional and maintainable club website that felt modern without losing its grassroots identity, while supporting fast access to match information, responsive layouts, strong SEO foundations, and future content expansion.",
+      solution:
+        "I developed the website using Next.js, TypeScript, and Tailwind CSS, building reusable page sections and CMS-friendly data structures for club content, squad profiles, sponsors, news, fixtures, and results. The implementation includes responsive UI components, structured SEO metadata, and automated Full-Time fixture and table sync routes.",
+      outcome:
+        "The website launched as a polished digital presence for Hathersage FC, giving players, supporters, sponsors, and the local community a clear and reliable place to follow the club online.",
+    },
+    mockups: {
+      desktop: "/hathersagefc/hathersagefc.co.uk.webp",
+    },
+  },
   {
     title: "Project Exit",
     badge: "Live",
