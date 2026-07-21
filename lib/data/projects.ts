@@ -1,6 +1,7 @@
 import {
   SiNextdotjs,
   SiPayloadcms,
+  SiPostgresql,
   SiShadcnui,
   SiSupabase,
   SiTailwindcss,
@@ -24,6 +25,7 @@ export const projects: Project[] = [
       { label: "Next.js", icon: SiNextdotjs },
       { label: "TypeScript", icon: SiTypescript },
       { label: "Tailwind CSS", icon: SiTailwindcss },
+      { label: "PostgreSQL", icon: SiPostgresql },
       { label: "Supabase", icon: SiSupabase },
       { label: "Vercel Hosting", icon: SiVercel },
       { label: "PayloadCMS TBC", icon: SiPayloadcms },
@@ -114,6 +116,7 @@ export const projects: Project[] = [
       { label: "Next.js", icon: SiNextdotjs },
       { label: "TypeScript", icon: SiTypescript },
       { label: "Tailwind CSS", icon: SiTailwindcss },
+      { label: "PostgreSQL", icon: SiPostgresql },
       { label: "Supabase", icon: SiSupabase },
       { label: "Vercel Hosting", icon: SiVercel },
     ],
@@ -123,7 +126,7 @@ export const projects: Project[] = [
       challenge:
         "The core challenge was balancing rich user customisation with a simple flow. The interface needed to support dynamic content and theming while maintaining speed across devices.",
       solution:
-        "I built a modular full-stack architecture using Next.js and Supabase, implemented component-driven page generation, and optimised rendering paths so users get a smooth editing and viewing experience.",
+        "I built a modular full-stack architecture using Next.js and Supabase (PostgreSQL), implemented component-driven page generation, and optimised rendering paths so users get a smooth editing and viewing experience.",
       outcome:
         "The final build launched with a strong UX baseline, a scalable content model, and a deployment workflow that supports fast iteration as the product evolves.",
     },
@@ -143,6 +146,7 @@ export const projects: Project[] = [
       { label: "Next.js", icon: SiNextdotjs },
       { label: "TypeScript", icon: SiTypescript },
       { label: "Tailwind CSS", icon: SiTailwindcss },
+      { label: "PostgreSQL", icon: SiPostgresql },
       { label: "Supabase", icon: SiSupabase },
       { label: "Vercel Hosting", icon: SiVercel },
     ],
@@ -172,6 +176,7 @@ export const projects: Project[] = [
       { label: "Next.js", icon: SiNextdotjs },
       { label: "TypeScript", icon: SiTypescript },
       { label: "Tailwind CSS", icon: SiTailwindcss },
+      { label: "PostgreSQL", icon: SiPostgresql },
       { label: "Supabase", icon: SiSupabase },
       { label: "Vercel Hosting", icon: SiVercel },
     ],

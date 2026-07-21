@@ -284,7 +284,7 @@ export default function CVPage() {
                   Heartfelt Pages - heartfeltpages.co.uk
                 </a>
               </h3>
-              <span className="cv-tag">Next.js · Supabase</span>
+              <span className="cv-tag">Next.js · PostgreSQL</span>
             </div>
             <p className="cv-p">
               Full-stack digital platform generating dynamic personalised
